@@ -4,10 +4,14 @@ from .models import *
 
 # Create your views here.
 
-class HomeView(ListView):
-    model = Customer
-    template_name = 'ecom_app/home.html'
+def home(request):
+    customer = Customer.objects.all()
+    product = Product.objects.all()
+    context = {'customer':customer,'product': product}
+    return render(request, 'ecom_app/home.html', context)
+
+
 
 class ProductView(ListView):
     model = Product
-    template_name = 'ecom_app/products.html'
+    template_name = 'ecom_app/productd.html'

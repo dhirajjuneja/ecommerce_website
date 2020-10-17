@@ -10,7 +10,6 @@ class Customer(models.Model):
         return self.name
 
 class Product(models.Model):
-    customer = models.ForeignKey(Customer, null=True ,on_delete=models.CASCADE)
     name = models.CharField('Product Name' ,max_length=120, blank=False,null=True)
     image = models.ImageField( blank=True, upload_to='images/')
     price = models.IntegerField('Price', blank=False,null=True)
